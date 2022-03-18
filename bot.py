@@ -14,7 +14,7 @@ with open('wavax.json') as wavax_file:
 with open('usdc.json') as usdc_file:
     usdc_abi = json.load(usdc_file)
 
-w3 = Web3(HTTPProvider(rpc))
+w3 = Web3(HTTPProvider("https://speedy-nodes-nyc.moralis.io/60e28d167e26cfc4e87ed912/avalanche/testnet"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 w3.middleware_onion.add(construct_sign_and_send_raw_middleware(private_key))
 w3.eth.default_account = w3.eth.account.privateKeyToAccount(private_key).address
