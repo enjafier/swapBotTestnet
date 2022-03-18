@@ -90,6 +90,6 @@ while True:
             print("Tx: {}".format(tx.hex()))
             print("Waiting for tx to be mined...")
             print("==================================")
-        sleep(random.randint(10, 15))
+        sleep(random.randint(60, 80))
     except ValueError:
         pass
