@@ -85,10 +85,10 @@ while True:
 #                 print("Waiting for tx to be mined...")
 #                 print("==================================")
             tx = usdc_avax(usdc_balance, deadline)
-                print("Swapping {} USDC for {} AVAX".format(w3.fromWei(usdc_amount,'ether'), w3.fromWei(avax_amount,'ether')))
-                print("Tx: {}".format(tx.hex()))
-                print("Waiting for tx to be mined...")
-                print("==================================")
+            print("Swapping {} USDC for {} AVAX".format(w3.fromWei(usdc_amount,'ether'), w3.fromWei(avax_amount,'ether')))
+            print("Tx: {}".format(tx.hex()))
+            print("Waiting for tx to be mined...")
+            print("==================================")
         sleep(10)
     except ValueError:
         pass
