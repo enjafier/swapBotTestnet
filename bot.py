@@ -72,15 +72,20 @@ while True:
             print("==================================")
         else:
             usdc_balance = usdc.functions.balanceOf(w3.eth.default_account).call()
-            if usdc_balance >= w3.toWei(0.4, 'ether'):
-                tx = usdc_avax(usdc_amount, deadline)
+#             if usdc_balance >= w3.toWei(0.4, 'ether'):
+#                 tx = usdc_avax(usdc_amount, deadline)
+#                 print("Swapping {} USDC for {} AVAX".format(w3.fromWei(usdc_amount,'ether'), w3.fromWei(avax_amount,'ether')))
+#                 print("Tx: {}".format(tx.hex()))
+#                 print("Waiting for tx to be mined...")
+#                 print("==================================")
+#             else:
+#                 tx = avax_usdc(avax_amount, deadline)
+#                 print("Swapping {} AVAX for {} USDC".format(w3.fromWei(avax_amount,'ether'), w3.fromWei(usdc_amount,'ether')))
+#                 print("Tx: {}".format(tx.hex()))
+#                 print("Waiting for tx to be mined...")
+#                 print("==================================")
+            tx = usdc_avax(usdc_balance, deadline)
                 print("Swapping {} USDC for {} AVAX".format(w3.fromWei(usdc_amount,'ether'), w3.fromWei(avax_amount,'ether')))
-                print("Tx: {}".format(tx.hex()))
-                print("Waiting for tx to be mined...")
-                print("==================================")
-            else:
-                tx = avax_usdc(avax_amount, deadline)
-                print("Swapping {} AVAX for {} USDC".format(w3.fromWei(avax_amount,'ether'), w3.fromWei(usdc_amount,'ether')))
                 print("Tx: {}".format(tx.hex()))
                 print("Waiting for tx to be mined...")
                 print("==================================")
