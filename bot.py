@@ -45,7 +45,7 @@ def avax_usdc(avax_amount, deadline):
 
 def usdc_avax(usdc_amount, deadline):
     tx = swap.functions.swapExactTokensForAVAX(
-    w3.toWei(0.001, 'ether'),
+    usdc_amount,
     0,
     USDC_AVAX,
     w3.eth.default_account,
@@ -62,7 +62,7 @@ while True:
         balance = w3.eth.get_balance(w3.eth.default_account)
         timestamp = w3.eth.getBlock('latest').timestamp
         deadline = timestamp + 60 * 30
-        avax_amount = w3.toWei(0.001, 'ether')
+        avax_amount = w3.toWei(0.2, 'ether')
         usdc_amount = w3.toWei(0.2, 'ether')
         if balance >= w3.toWei(2, 'ether'):
             tx = avax_usdc(avax_amount, deadline)
