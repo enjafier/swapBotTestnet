@@ -6,7 +6,7 @@ from time import sleep
 import random
 load_dotenv()
 
-private_key = os.getenv('priv2')
+private_key = os.getenv('priv')
 rpc = os.getenv('rpc')
 with open('abi.json') as json_file:
     abi = json.load(json_file)
