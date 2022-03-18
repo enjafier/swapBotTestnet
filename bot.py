@@ -62,7 +62,7 @@ while True:
     try:
         balance = w3.eth.get_balance(w3.eth.default_account)
         timestamp = w3.eth.getBlock('latest').timestamp
-        deadline = timestamp + 60 * random.randint(30, 45)
+        deadline = timestamp + 60 * random.randint(50, 60)
         avax_amount = w3.toWei(random.uniform(0.2,0.3), 'ether')
         usdc_amount = w3.toWei(random.uniform(0.2,0.3), 'ether')
         if balance >= w3.toWei(1.9, 'ether'):
