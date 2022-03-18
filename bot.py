@@ -6,7 +6,7 @@ from time import sleep
 import random
 load_dotenv()
 
-private_key = os.getenv('priv')
+private_key = os.getenv('priv2')
 rpc = os.getenv('rpc')
 with open('abi.json') as json_file:
     abi = json.load(json_file)
@@ -15,7 +15,7 @@ with open('wavax.json') as wavax_file:
 with open('usdc.json') as usdc_file:
     usdc_abi = json.load(usdc_file)
 
-w3 = Web3(HTTPProvider("https://speedy-nodes-nyc.moralis.io/60e28d167e26cfc4e87ed912/avalanche/testnet"))
+w3 = Web3(HTTPProvider("https://speedy-nodes-nyc.moralis.io/bc3d050d0dcf50e6c8fd2373/avalanche/testnet"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 w3.middleware_onion.add(construct_sign_and_send_raw_middleware(private_key))
 w3.eth.default_account = w3.eth.account.privateKeyToAccount(private_key).address
@@ -63,8 +63,8 @@ while True:
         balance = w3.eth.get_balance(w3.eth.default_account)
         timestamp = w3.eth.getBlock('latest').timestamp
         deadline = timestamp + 60 * 30
-        avax_amount = w3.toWei(random.uniform(0.2,0.3), 'ether')
-        usdc_amount = w3.toWei(random.uniform(0.2,0.3), 'ether')
+        avax_amount = w3.toWei(random.uniform(0.1,0.2), 'ether')
+        usdc_amount = w3.toWei(random.uniform(0.1,0.2), 'ether')
         if balance >= w3.toWei(1.9, 'ether'):
             tx = avax_usdc(avax_amount, deadline)
             print("Swapping {} AVAX for {} USDC".format(w3.fromWei(avax_amount,'ether'), w3.fromWei(usdc_amount,'ether')))
