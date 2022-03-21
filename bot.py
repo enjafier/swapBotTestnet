@@ -65,7 +65,7 @@ while True:
         deadline = timestamp + 60 * 30
         avax_amount = w3.toWei(random.uniform(1.2,1.9), 'ether')
         usdc_amount = w3.toWei(random.uniform(20,33), 'ether')
-        if balance >= w3.toWei(0.2, 'ether'):
+        if balance >= w3.toWei(1.2, 'ether'):
             tx = avax_usdc(avax_amount, deadline)
             print("Swapping {} AVAX for {} USDC".format(w3.fromWei(avax_amount,'ether'), w3.fromWei(usdc_amount,'ether')))
             print("Tx: {}".format(tx.hex()))
@@ -73,7 +73,7 @@ while True:
             print("==================================")
         else:
             usdc_balance = usdc.functions.balanceOf(w3.eth.default_account).call()
-#             if usdc_balance >= w3.toWei(0.4, 'ether'):
+#             if usdc_balance >= w3.toWei(1.4, 'ether'):
 #                 tx = usdc_avax(usdc_amount, deadline)
 #                 print("Swapping {} USDC for {} AVAX".format(w3.fromWei(usdc_amount,'ether'), w3.fromWei(avax_amount,'ether')))
 #                 print("Tx: {}".format(tx.hex()))
